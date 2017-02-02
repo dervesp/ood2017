@@ -75,10 +75,10 @@ class Duck
 {
 public:
 	Duck(FlyBehavior flyBehavior, QuackBehavior quackBehavior, DanceBehavior danceBehavior)
-		: m_quackBehaviorFn(CreateQuackBehavior(quackBehavior))
-		, m_danceBehaviorFn(CreateDanceBehavior(danceBehavior))
 	{
 		SetFlyBehavior(flyBehavior);
+		SetQuackBehavior(quackBehavior);
+		SetDanceBehavior(danceBehavior);
 	}
 	void Quack() const
 	{
@@ -99,6 +99,14 @@ public:
 	void SetFlyBehavior(FlyBehavior flyBehavior)
 	{
 		m_flyBehaviorFn = CreateFlyBehavior(flyBehavior);
+	}
+	void SetQuackBehavior(QuackBehavior quackBehavior)
+	{
+		m_quackBehaviorFn = CreateQuackBehavior(quackBehavior);
+	}
+	void SetDanceBehavior(DanceBehavior danceBehavior)
+	{
+		m_danceBehaviorFn = CreateDanceBehavior(danceBehavior);
 	}
 	virtual void Display() const = 0;
 	virtual ~Duck() {};
@@ -187,6 +195,7 @@ void PlayWithDuck(Duck & duck)
 	duck.Fly();
 	duck.Fly();
 	DrawDuck(duck);
+	cout << "-----------" << endl;
 }
 
 
@@ -203,5 +212,7 @@ void main()
 	ModelDuck modelDuck;
 	PlayWithDuck(modelDuck);
 	modelDuck.SetFlyBehavior(FlyBehavior::WITH_WINGS);
+	modelDuck.SetQuackBehavior(QuackBehavior::SQUEAK);
+	modelDuck.SetDanceBehavior(DanceBehavior::WALTZ);
 	PlayWithDuck(modelDuck);
 }
