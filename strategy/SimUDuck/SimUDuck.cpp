@@ -58,7 +58,7 @@ namespace
 class Duck
 {
 public:
-	Duck(FlyBehaviorFn flyBehaviorFn, QuackBehaviorFn quackBehaviorFn, const DanceBehaviorFn & danceBehaviorFn)
+	Duck(const FlyBehaviorFn & flyBehaviorFn, const QuackBehaviorFn & quackBehaviorFn, const DanceBehaviorFn & danceBehaviorFn)
 	{
 		SetFlyBehaviorFn(flyBehaviorFn);
 		SetQuackBehaviorFn(quackBehaviorFn);
