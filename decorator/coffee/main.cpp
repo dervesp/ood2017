@@ -25,7 +25,7 @@ auto operator << (Component && component, const Decorator & decorate)
 int main()
 {
 	{
-		
+
 		auto beverage =
 			make_unique<CTea>()
 			<< MakeCondiment<CLemon>(2)
@@ -33,23 +33,81 @@ int main()
 
 		cout << beverage->GetDescription() << " costs " << beverage->GetCost() << endl;
 	}
-
 	{
-		auto beverage = 
-			make_unique<CLatte>()							
-			<< MakeCondiment<CCinnamon>()					
-			<< MakeCondiment<CLemon>(2)						
-			<< MakeCondiment<CIceCubes>(2, IceCubeType::Dry)
-			<< MakeCondiment<CChocolateCrumbs>(2);			
+
+		auto beverage =
+			make_unique<CTea>(TeaType::Java)
+			<< MakeCondiment<CLemon>(2)
+			<< MakeCondiment<CIceCubes>(3, IceCubeType::Water);
+
+		cout << beverage->GetDescription() << " costs " << beverage->GetCost() << endl;
+	}
+	{
+
+		auto beverage =
+			make_unique<CTea>(TeaType::Gita)
+			<< MakeCondiment<CLemon>(2)
+			<< MakeCondiment<CIceCubes>(3, IceCubeType::Water);
 
 		cout << beverage->GetDescription() << " costs " << beverage->GetCost() << endl;
 	}
 
 	{
-		auto beverage = 
-			make_unique<CMilkshake>()					
-			<< MakeCondiment<CSyrup>(SyrupType::Maple)	
-			<< MakeCondiment<CCoconutFlakes>(8);		
+		auto beverage =
+			make_unique<CLatte>()
+			<< MakeCondiment<CCinnamon>()
+			<< MakeCondiment<CLemon>(2)
+			<< MakeCondiment<CIceCubes>(2, IceCubeType::Dry)
+			<< MakeCondiment<CChocolateCrumbs>(2);
+
+		cout << beverage->GetDescription() << " costs " << beverage->GetCost() << endl;
+	}
+
+	{
+		auto beverage =
+			make_unique<CLatte>(CoffeeSize::Double)
+			<< MakeCondiment<CCinnamon>()
+			<< MakeCondiment<CLemon>(2)
+			<< MakeCondiment<CIceCubes>(2, IceCubeType::Dry)
+			<< MakeCondiment<CChocolateCrumbs>(2);
+
+		cout << beverage->GetDescription() << " costs " << beverage->GetCost() << endl;
+	}
+
+	{
+		auto beverage =
+			make_unique<CCapuccino>(CoffeeSize::Double)
+			<< MakeCondiment<CCinnamon>()
+			<< MakeCondiment<CLemon>(2)
+			<< MakeCondiment<CIceCubes>(2, IceCubeType::Dry)
+			<< MakeCondiment<CChocolateCrumbs>(2);
+
+		cout << beverage->GetDescription() << " costs " << beverage->GetCost() << endl;
+	}
+
+	{
+		auto beverage =
+			make_unique<CMilkshake>()
+			<< MakeCondiment<CSyrup>(SyrupType::Maple)
+			<< MakeCondiment<CCoconutFlakes>(8);
+
+		cout << beverage->GetDescription() << " costs " << beverage->GetCost() << endl;
+	}
+
+	{
+		auto beverage =
+			make_unique<CMilkshake>(ShakeSize::Medium)
+			<< MakeCondiment<CSyrup>(SyrupType::Maple)
+			<< MakeCondiment<CCoconutFlakes>(8);
+
+		cout << beverage->GetDescription() << " costs " << beverage->GetCost() << endl;
+	}
+
+	{
+		auto beverage =
+			make_unique<CMilkshake>(ShakeSize::Large)
+			<< MakeCondiment<CSyrup>(SyrupType::Maple)
+			<< MakeCondiment<CCoconutFlakes>(8);
 
 		cout << beverage->GetDescription() << " costs " << beverage->GetCost() << endl;
 	}
