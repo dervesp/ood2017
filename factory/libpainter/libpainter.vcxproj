@@ -147,6 +147,7 @@
     <ClInclude Include="Coord2D.h" />
     <ClInclude Include="Ellipse.h" />
     <ClInclude Include="ICanvas.h" />
+    <ClInclude Include="Polygon.h" />
     <ClInclude Include="ShapeColor.h" />
     <ClInclude Include="Designer.h" />
     <ClInclude Include="IShapeFactory.h" />
@@ -163,6 +164,7 @@
     <ClCompile Include="Designer.cpp" />
     <ClCompile Include="Ellipse.cpp" />
     <ClCompile Include="PictureDraft.cpp" />
+    <ClCompile Include="Polygon.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="ShapeFactory.cpp" />

@@ -15,5 +15,6 @@ private:
 	std::unique_ptr<CShape> CreateRectangle(ShapeColor color, std::istringstream & stringStream);
 	std::unique_ptr<CShape>CreateTriangle(ShapeColor color, std::istringstream & stringStream);
 	std::unique_ptr<CShape>CreateEllipse(ShapeColor color, std::istringstream & stringStream);
+	std::unique_ptr<CShape>CreatePolygon(ShapeColor color, std::istringstream & stringStream);
 };
 

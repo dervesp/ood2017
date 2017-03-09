@@ -5,6 +5,7 @@
 #include "Rectangle.h"
 #include "Triangle.h"
 #include "Ellipse.h"
+#include "Polygon.h"
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -14,6 +15,7 @@ namespace
 	auto const SHAPE_TYPE_RECTANGLE = "rectangle";
 	auto const SHAPE_TYPE_TRIANGLE = "triangle";
 	auto const SHAPE_TYPE_ELLIPSE = "ellipse";
+	auto const SHAPE_TYPE_POLYGON = "polygon";
 }
 
 
@@ -42,6 +44,10 @@ std::unique_ptr<CShape> CShapeFactory::CreateShape(const std::string & descripti
 		else if (shapeType == SHAPE_TYPE_ELLIPSE)
 		{
 			return CreateEllipse(shapeColor, stringStream);
+		}
+		else if (shapeType == SHAPE_TYPE_POLYGON)
+		{
+			return CreatePolygon(shapeColor, stringStream);
 		}
 		else
 		{
@@ -113,5 +119,24 @@ std::unique_ptr<CShape> CShapeFactory::CreateEllipse(ShapeColor color, std::istr
 	else
 	{
 		throw std::invalid_argument("invalid parameters for ellipse shape");
+	}
+}
+
+std::unique_ptr<CShape> CShapeFactory::CreatePolygon(ShapeColor color, std::istringstream & stringStream)
+{
+	double centerX, centerY, radius;
+	unsigned vertexCount;
+
+	if (stringStream >> centerX >> centerY >> radius >> vertexCount)
+	{
+		if (vertexCount < 2)
+		{
+			throw std::invalid_argument("invalid polygon vertex count");
+		}
+		return std::make_unique<CPolygon>(color, Coord2D(centerX, centerY), radius, vertexCount);
+	}
+	else
+	{
+		throw std::invalid_argument("invalid parameters for polygon shape");
 	}
 }
