@@ -2,8 +2,13 @@
 #include "Shape.h"
 
 
-CShape::CShape()
+CShape::CShape(ShapeColor color) : m_color(color)
 {
+}
+
+ShapeColor CShape::GetColor() const
+{
+	return m_color;
 }
 
 

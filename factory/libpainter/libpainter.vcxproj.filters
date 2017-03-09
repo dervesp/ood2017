@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Support Files">
-      <UniqueIdentifier>{ba73d31c-980c-4e12-9d5c-c88efdd5c0d3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Shapes">
       <UniqueIdentifier>{44d427e4-3d63-49c0-80bf-3b9ff9dfc07d}</UniqueIdentifier>
     </Filter>
@@ -24,6 +21,9 @@
     </Filter>
     <Filter Include="Source Files\Designer">
       <UniqueIdentifier>{d591d95e-293c-4bc6-8cd5-30add364bdd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Support Files">
+      <UniqueIdentifier>{ba73d31c-980c-4e12-9d5c-c88efdd5c0d3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -48,6 +48,30 @@
     <ClInclude Include="IShapeFactory.h">
       <Filter>Source Files\Shapes</Filter>
     </ClInclude>
+    <ClInclude Include="ShapeFactory.h">
+      <Filter>Source Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>Source Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeColor.h">
+      <Filter>Source Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="ICanvas.h">
+      <Filter>Source Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas.h">
+      <Filter>Source Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="Coord2D.h">
+      <Filter>Source Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>Source Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Ellipse.h">
+      <Filter>Source Files\Shapes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -60,6 +84,21 @@
       <Filter>Source Files\Shapes</Filter>
     </ClCompile>
     <ClCompile Include="Shape.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeFactory.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Canvas.cpp">
+      <Filter>Source Files\Canvas</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Ellipse.cpp">
       <Filter>Source Files\Shapes</Filter>
     </ClCompile>
   </ItemGroup>

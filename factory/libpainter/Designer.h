@@ -1,15 +1,12 @@
 ﻿#pragma once
 #include <iosfwd>
-
-class CPictureDraft;
-
-struct IShapeFactory;
+#include "IShapeFactory.h"
+#include "PictureDraft.h"
 
 class CDesigner
 {
 public:
 	CDesigner(IShapeFactory & factory);
-	~CDesigner();
 	CPictureDraft CreateDraft(std::istream & inputData);
 private:
 	IShapeFactory & m_factory;
