@@ -6,7 +6,7 @@ import {CModernGraphicsRenderer} from "./lib/ModernGraphicsLib";
 
 namespace App {
     function PaintPicture(painter: CCanvasPainter) {
-        const triangle = new CTriangle([10, 15], [100, 200], [150, 250]);
+        const triangle = new CTriangle([10, 15], [100, 200], [150, 250], 0xFF0080);
         const rectangle = new CRectangle([30, 40], 18, 24);
 
         painter.draw(triangle);
@@ -14,7 +14,7 @@ namespace App {
     }
 
     export function PaintPictureOnCanvas(outputStream: IOutputStream) {
-        outputStream.print("PaintPictureOnCanvas:\n");
+        outputStream.print("Paint picture on Canvas:\n");
 
         const canvas = new CCanvas(outputStream);
         const painter = new CCanvasPainter(canvas);
@@ -24,7 +24,7 @@ namespace App {
     }
 
     export function PaintPictureModernGraphicsRendererObjectAdapter(outputStream: IOutputStream) {
-        outputStream.print("PaintPictureModernGraphicsRendererObjectAdapter:\n");
+        outputStream.print("Paint picture with ModernGraphicsRendererObjectAdapter:\n");
 
         const renderer = new CModernGraphicsRenderer(outputStream);
         const canvas = new CModernGraphicsRendererCanvasObjectAdapter(renderer);
@@ -35,7 +35,7 @@ namespace App {
     }
 
     export function PaintPictureModernGraphicsRendererClassAdapter(outputStream: IOutputStream) {
-        outputStream.print("PaintPictureModernGraphicsRendererClassAdapter:\n");
+        outputStream.print("Paint picture with ModernGraphicsRendererClassAdapter:\n");
 
         const canvas = new CModernGraphicsRendererCanvasClassAdapter(outputStream);
         const painter = new CCanvasPainter(canvas);
@@ -47,6 +47,12 @@ namespace App {
 
 const outputStream = new CHtmlOutputStream();
 window["cout"] = outputStream;
-App.PaintPictureOnCanvas(outputStream);
-App.PaintPictureModernGraphicsRendererObjectAdapter(outputStream);
-App.PaintPictureModernGraphicsRendererClassAdapter(outputStream);
+try {
+    App.PaintPictureOnCanvas(outputStream);
+    App.PaintPictureModernGraphicsRendererObjectAdapter(outputStream);
+    App.PaintPictureModernGraphicsRendererClassAdapter(outputStream);
+}
+catch (ex) {
+    outputStream.print(ex);
+    outputStream.print(ex.stack);
+}
