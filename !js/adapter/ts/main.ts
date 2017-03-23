@@ -1,7 +1,7 @@
 import {ICanvasDrawable, CTriangle, CRectangle, CCanvasPainter} from "./lib/ShapeDrawingLib";
 import {CCanvas} from "./lib/GraphicsLib";
 import {CHtmlOutputStream, IOutputStream} from "./lib/OutputStreamLib";
-import {CModernGraphicsRendererCanvasAdapter} from "./lib/ModernGraphicsLibAdapter";
+import {CModernGraphicsRendererCanvasObjectAdapter, CModernGraphicsRendererCanvasClassAdapter} from "./lib/ModernGraphicsLibAdapter";
 import {CModernGraphicsRenderer} from "./lib/ModernGraphicsLib";
 
 namespace App {
@@ -23,11 +23,21 @@ namespace App {
         outputStream.print("\n");
     }
 
-    export function PaintPictureOModernGraphicsRenderer(outputStream: IOutputStream) {
-        outputStream.print("PaintPictureOModernGraphicsRenderer:\n");
+    export function PaintPictureModernGraphicsRendererObjectAdapter(outputStream: IOutputStream) {
+        outputStream.print("PaintPictureModernGraphicsRendererObjectAdapter:\n");
 
         const renderer = new CModernGraphicsRenderer(outputStream);
-        const canvas = new CModernGraphicsRendererCanvasAdapter(renderer);
+        const canvas = new CModernGraphicsRendererCanvasObjectAdapter(renderer);
+        const painter = new CCanvasPainter(canvas);
+        PaintPicture(painter);
+
+        outputStream.print("\n");
+    }
+
+    export function PaintPictureModernGraphicsRendererClassAdapter(outputStream: IOutputStream) {
+        outputStream.print("PaintPictureModernGraphicsRendererClassAdapter:\n");
+
+        const canvas = new CModernGraphicsRendererCanvasClassAdapter(outputStream);
         const painter = new CCanvasPainter(canvas);
         PaintPicture(painter);
 
@@ -38,4 +48,5 @@ namespace App {
 const outputStream = new CHtmlOutputStream();
 window["cout"] = outputStream;
 App.PaintPictureOnCanvas(outputStream);
-App.PaintPictureOModernGraphicsRenderer(outputStream);
+App.PaintPictureModernGraphicsRendererObjectAdapter(outputStream);
+App.PaintPictureModernGraphicsRendererClassAdapter(outputStream);
